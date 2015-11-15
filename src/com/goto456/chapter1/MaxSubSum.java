@@ -32,6 +32,23 @@ public class MaxSubSum {
     return maxSum;
   }
   
+  private static int maxSumRec(int[] a, int left, int right) {
+    if (left == right) {
+      if (a[left] > 0) {
+        return a[left];
+      }
+      else {
+        return 0;
+      }
+    }
+    
+    int center = left + (right - left) / 2;
+    int maxLeftSum = maxSumRec(a, left, center);
+    int maxRightSum = maxSumRec(a, center + 1, right);
+    
+    
+  }
+  
   public static void main(String[] args) {
     int[] a = {-2, 11, -4, 13, -5, -2};
     //int maxSum = maxSubSum1(a);
