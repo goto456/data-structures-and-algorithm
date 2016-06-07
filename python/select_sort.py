@@ -11,16 +11,14 @@ import random
 
 def select_sort(nums):
     length = len(nums)
-    min_value = nums[0]
     min_index = 0
     for i in range(length - 1):
-        min_value = nums[i]
         min_index = i
         for j in range(i + 1, length):
-            if nums[j] < min_value:
-                min_value = nums[j]
+            if nums[j] < nums[min_index]:
                 min_index = j
-        nums[i], nums[min_index] = nums[min_index], nums[i]
+        if min_index != i:
+            nums[i], nums[min_index] = nums[min_index], nums[i]
     return nums
 
 def test():
